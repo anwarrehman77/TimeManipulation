@@ -68,10 +68,21 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void Flip()
+    private void Flip()
     {
         transform.Rotate(new Vector3(0f, 180f, 0f));
 
         facingRight = !facingRight;
+    }
+
+    public IEnumerator ChangeMovementStats(float speedMultiplier, float jumpMultiplier, float duration)
+    {
+        speed *= speedMultiplier;
+        jumpForce *= jumpMultiplier;
+
+        yield return new WaitForSeconds(duration);
+
+        speed /= speedMultiplier;
+        jumpForce /= jumpMultiplier;
     }
 }

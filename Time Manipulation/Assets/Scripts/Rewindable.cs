@@ -22,7 +22,6 @@ public class Rewindable : MonoBehaviour
     private void Update()
     {
         rewinding = Input.GetKey(KeyCode.J);
-        Time.timeScale = !rewinding ? 1f : 0.75f;
 
         if (rb2d != null) rb2d.simulated = !rewinding;
 
